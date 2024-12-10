@@ -8,7 +8,6 @@ public class RobaCasas {
         int cant = casas.length;
         int i = 2;
         int [] acum = new int[cant];
-        int anterior;
         int roboActual, roboAnterior;
 
         if(cant == 0 )
@@ -35,7 +34,7 @@ public class RobaCasas {
                 acum[i] = roboActual;
 
             }
-
+            //             acum[i] = Math.max( acum[i - 1], casas[i] + acum[i - 2] );
         }
         System.out.print("Array acum:\n");
 

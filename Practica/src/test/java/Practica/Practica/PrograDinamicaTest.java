@@ -1,9 +1,6 @@
 package Practica.Practica;
 
-import Practica.Practica.PrograDinamica.MaximoSubconjunto;
-import Practica.Practica.PrograDinamica.PuntosTablero;
-import Practica.Practica.PrograDinamica.RobaCasas;
-import Practica.Practica.PrograDinamica.TesoroPirata;
+import Practica.Practica.PrograDinamica.*;
 import Practica.Practica.PrograDinamica.RobaCasas;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -50,4 +47,40 @@ public class PrograDinamicaTest {
         assertEquals(25,chorro.maximoRobo(casas), "La mayor cantidad de plata debería ser 25");
 
     }
+
+    @Test
+    public void MinaDeOroTest(){
+        int[][] mina = {
+                {2,3,10,1,14},
+                {2,8,2,3,1},
+                {9,2,4,2,2},
+                {2,1,2,2,7},
+                {2,3,2,10,2}
+        };
+        MinaDeOro minero = new MinaDeOro();
+
+        assertEquals(36,minero.cavar(mina), "La mayor cantidad de oro debería ser 36");
+    }
+
+    @Test
+    public void EdicionTest(){
+        String word1 = "inside";
+        String word2 = "index";
+
+        DistanciaEdicion edicion = new DistanciaEdicion();
+
+        assertEquals(3,edicion.minimo(word1,word2), "La menor cantidad debería ser 3");
+    }
+
+    @Test
+    public void MochilaTest(){
+        int[] precios = {2,5,8,1};
+        int[] pesos = {3,2,5,1};
+        int capacidad = 6;
+
+        Mochila mochila = new Mochila();
+
+        assertEquals(9,mochila.maxima(pesos,precios,capacidad), "La mayor cantidad debería ser 55");
+    }
+
 }
