@@ -2,7 +2,6 @@ package Practica.Practica;
 
 import Practica.Practica.PrograDinamica.*;
 import Practica.Practica.PrograDinamica.RobaCasas;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,9 +33,10 @@ public class PrograDinamicaTest {
 
     @Test
     public void MaximoSubconjuntoTest(){
-        int [] conjunto = {3,4,-1,5,-3,2};
+        //int [] conjunto = {3,4,-1,5,-3,2};
+        int [] conjunto = {2,-3,4,5,-1,9,9,-4};
         MaximoSubconjunto maximoSubconjunto = new MaximoSubconjunto();
-        assertEquals(11,maximoSubconjunto.obtener(conjunto), "La mayor cantidad de puntos debería ser 14");
+        assertEquals(26,maximoSubconjunto.obtener(conjunto), "La mayor cantidad de puntos debería ser 14");
     }
 
     @Test
@@ -83,4 +83,34 @@ public class PrograDinamicaTest {
         assertEquals(9,mochila.maxima(pesos,precios,capacidad), "La mayor cantidad debería ser 55");
     }
 
+    @Test
+    public void FibonacciTest(){
+        Fibonacci fibonacci = new Fibonacci();
+        assertEquals(13,fibonacci.obtener(7), "El valor debería ser 13");
+    }
+
+    @Test
+    public void SubRectangulos(){
+        int[][] matriz = {
+                {1, 2, -1, -4, -20},
+                {-8, -3, 4, 2, 1},
+                {3, 8, 10, 1, 3},
+                {-4, -1, 1, 7, -6}
+        };
+        SumaDeSubrectangulos sumaDeSubrectangulos = new SumaDeSubrectangulos();
+        assertEquals(29, sumaDeSubrectangulos.encontrarMaximoSubrectangulo(matriz), "El valor debería ser 29");
+    }
+
+    @Test
+    public void varillaTest(){
+        int [] longuitudes = {2,4,7};
+        CantidadDeFormasDeObtenerMonto varilla = new CantidadDeFormasDeObtenerMonto();
+        assertEquals(7, varilla.obtener(longuitudes, 10));
+    }
+
+    @Test
+    public void AbejaTest(){
+        PanalDeAbeja abeja = new PanalDeAbeja();
+        assertEquals(11,abeja.contarCaminos(2) );
+    }
 }

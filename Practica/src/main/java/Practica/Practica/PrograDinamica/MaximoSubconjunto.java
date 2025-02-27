@@ -31,7 +31,7 @@ public class MaximoSubconjunto {
             for (int f = 1; f < n; f++) {
                 for (int c = f ; c < n ; c++) {
                     if(c == f)
-                        m[f][f] = (arreglo[c-1] + arreglo[c]);
+                        m[f][f] = arreglo[c];
                     else
                         m[f][c] = m[f][c - 1] + arreglo[c];
 
@@ -40,13 +40,20 @@ public class MaximoSubconjunto {
         imprimir(m);
         // Encontrar la máxima suma
         int maxSuma = Integer.MIN_VALUE;
+        int aux;
+        int f=-1, c=-1;
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
-                maxSuma = Math.max(maxSuma, m[i][j]);
+                aux = Math.max(maxSuma, m[i][j]);
+                if(aux != maxSuma){
+                    maxSuma = aux;
+                    f=i;
+                    c=j;
+                }
                 //si te piden desde donde arrancar y cuando parar son la i y la j
             }
         }
-
+        System.out.printf("El sub conjunto maximo comienza en la posicion %d y termina en la %d y suma %d", f, c, maxSuma);
         return maxSuma;
     }
 }

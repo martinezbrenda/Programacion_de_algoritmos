@@ -10,7 +10,8 @@ public class Mochila {
         // Llenado de la tabla
         for (int i = 1; i <= items; i++) { // Iterar por cada ítem
             for (int w = 0; w < columnas; w++) { // Iterar por cada capacidad posible
-                if (pesos[i - 1] <= w) {
+                if (pesos[i - 1] <= w) // si el peso de este item entra en la mochila
+                    {
                     // Caso donde podemos incluir el ítem
                     tab[i][w] = Math.max(
                             precios[i - 1] + tab[i - 1][w - pesos[i - 1]], // Incluir el ítem
